@@ -1,7 +1,7 @@
 ---
-name: market-tracker
+name: finance
 description: Track stocks, ETFs, indices, crypto (where available), and FX pairs with caching + provider fallbacks.
-metadata: {"clawdbot":{"config":{"requiredEnv":["TWELVEDATA_API_KEY","ALPHAVANTAGE_API_KEY"],"stateDirs":[".cache/market-tracker"],"example":"# Optional (only if you add a paid provider later)\n# export TWELVEDATA_API_KEY=\"...\"\n# export ALPHAVANTAGE_API_KEY=\"...\"\n"}}}
+metadata: {"clawdbot":{"config":{"requiredEnv":["TWELVEDATA_API_KEY","ALPHAVANTAGE_API_KEY"],"stateDirs":[".cache/finance"],"example":"# Optional (only if you add a paid provider later)\n# export TWELVEDATA_API_KEY=\"...\"\n# export ALPHAVANTAGE_API_KEY=\"...\"\n"}}}
 ---
 
 # Market Tracker Skill
