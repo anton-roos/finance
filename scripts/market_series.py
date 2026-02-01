@@ -50,8 +50,15 @@ def _stock_series(symbol: str, days: int) -> pd.DataFrame:
         raise RuntimeError(f"No data returned for symbol: {symbol}")
 
     df = df.reset_index()
-    # Normalize column names
-    cols = {c: c.lower().replace(" ", "_") for c in df.columns}
+    # Normalize column names (handle MultiIndex tuples from yfinance)
+    cols = {}
+    for c in df.columns:
+        if isinstance(c, tuple):
+            # Flatten tuple to string (e.g., ('Close', 'AAPL') -> 'close')
+            name = "_".join(str(x) for x in c if x).lower().replace(" ", "_")
+        else:
+            name = str(c).lower().replace(" ", "_")
+        cols[c] = name
     df = df.rename(columns=cols)
     return df
 
